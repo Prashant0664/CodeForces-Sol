@@ -6,7 +6,7 @@ int main(){
     while(t--){
         string s;
         cin>>s;
-        cout<<((int)s[0]+(int)s[2]-48-48);
+        cout<<((int)s[0]+(int)s[2]-48-48)<<endl;
     }
     return 0;
 }

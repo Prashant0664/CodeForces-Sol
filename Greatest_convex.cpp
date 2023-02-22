@@ -4,9 +4,9 @@ int main(){
     int t;
     cin>>t;
     while(t--){
-        string s;
-        cin>>s;
-        cout<<((int)s[0]+(int)s[2]-48-48);
+        int n;
+        cin>>n;
+        cout<<n-1<<endl;
     }
     return 0;
 }
