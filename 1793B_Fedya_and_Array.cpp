@@ -7,7 +7,7 @@ int main(){
         int n,m;
         cin>>n>>m;
         int k=2*(n-m);
-        cout<<k;
+        cout<<k<<endl;
         int ptr=0;
         int arr[k];
     for (long long int c = m; c <= n; ++c) {
@@ -17,7 +17,7 @@ int main(){
         arr[ptr++] = c;
     }
     for (int i = 0; i < k; ++i) {
-        cout << arr[i] << " \n"[i == n - 1];
+        cout << arr[i] << " ";
     }
     cout<<endl;
 
