@@ -22,28 +22,29 @@ int main(){
         // }
         vector<vector<int>>ans(n,vector<int>(n));
         // cout<<"dfv";
-        for(int i=0;i<n;i++){
-            // cout<<"efbv";
-            for(int j=0;j<n;j++){
-                cout<<ans[i][j]<<" ";
-            }
-            // cout<<"gbrd";
-            cout<<endl;
-        }
+        // for(int i=0;i<n;i++){
+        //     // cout<<"efbv";
+        //     for(int j=0;j<n;j++){
+        //         cout<<ans[i][j]<<" ";
+        //     }
+        //     // cout<<"gbrd";
+        //     cout<<endl;
+        // }
         int kk=0;
         for(int i=0;i<n;i+=2){
             vector<int>m(n,0);
             for(int j=0;j<n;j++){
                 m[j]=v[kk++];
             }
-            for(int id=0;id<n;id++){
-                cout<<"--"<<m[id]<<" ";
-            }
             kk+=n;
 
             ans[i]=m;
+            // for(int id=0;id<n;id++){
+            //     cout<<"--"<<ans[i][id]<<" ";
+            // }
         }
         kk=n;
+        
         for(int i=1;i<n;i+=2){
             vector<int>m(n,0);
             for(int j=n-1;j>=0;j--){
@@ -53,13 +54,12 @@ int main(){
 
             ans[i]=m;
         }
-        kk=n;
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
-                cout<<v[j]<<" ";
+                cout<<ans[i][j]<<" ";
             }
-            cout<<endl;
-        }
+            cout<<endl;}
+        kk=n;
 
     }
     return 0;

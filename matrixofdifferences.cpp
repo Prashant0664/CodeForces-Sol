@@ -17,19 +17,7 @@ int main(){
             v[k++]=i+1;
             k++;
         }
-        // for(int i=0;i<n*n;i++){
-        //     cout<<v[i]<<" ";
-        // }
-        vector<vector<int>>ans(n,vector<int>(n));
-        // cout<<"dfv";
-        // for(int i=0;i<n;i++){
-        //     // cout<<"efbv";
-        //     for(int j=0;j<n;j++){
-        //         cout<<ans[i][j]<<" ";
-        //     }
-        //     // cout<<"gbrd";
-        //     cout<<endl;
-        // }
+        vector<vector<int>>ans(n,vector<int>(n,0));
         int kk=0;
         for(int i=0;i<n;i+=2){
             vector<int>m(n,0);
@@ -39,9 +27,6 @@ int main(){
             kk+=n;
 
             ans[i]=m;
-            // for(int id=0;id<n;id++){
-            //     cout<<"--"<<ans[i][id]<<" ";
-            // }
         }
         kk=n;
         
