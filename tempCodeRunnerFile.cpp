@@ -1,66 +1,52 @@
-#include<bits/stdc++.h>
+// C++ program to check if a string is
+// substring of other.
+#include <bits/stdc++.h>
 using namespace std;
-int main(){
+
+// Returns true if s1 is substring
+// of s2
+int isSubstring(string s1, string s2)
+{
+	int M = s1.length();
+	int N = s2.length();
+
+	/* A loop to slide pat[] one
+	by one */
+	for (int i = 0; i <= N - M; i++)
+	{
+		int j;
+
+		/* For current index i, check for
+		pattern match */
+		for (j = 0; j < M; j++)
+			if (s2[i + j] != s1[j])
+				break;
+
+		if (j == M)
+			return i;
+	}
+	return -1;
+}
+
+// Driver code
+int main()
+{
     int t;
     cin>>t;
     while(t--){
-        int n;
-        cin>>n;
-        vector<long long int>v(n*n,0);
-        int k=0;
-        for(int i=0;i<n*n;i++){
-            v[k++]=n*n-i;
-            k++;
-        }
-        k=1;
-        for(int i=0;i<n*n;i++){
-            v[k++]=i+1;
-            k++;
-        }
-        // for(int i=0;i<n*n;i++){
-        //     cout<<v[i]<<" ";
-        // }
-        vector<vector<int>>ans(n,vector<int>(n));
-        // cout<<"dfv";
-        // for(int i=0;i<n;i++){
-        //     // cout<<"efbv";
-        //     for(int j=0;j<n;j++){
-        //         cout<<ans[i][j]<<" ";
-        //     }
-        //     // cout<<"gbrd";
-        //     cout<<endl;
-        // }
-        int kk=0;
-        for(int i=0;i<n;i+=2){
-            vector<int>m(n,0);
-            for(int j=0;j<n;j++){
-                m[j]=v[kk++];
-            }
-            kk+=n;
-
-            ans[i]=m;
-            // for(int id=0;id<n;id++){
-            //     cout<<"--"<<ans[i][id]<<" ";
-            // }
-        }
-        kk=n;
-        
-        for(int i=1;i<n;i+=2){
-            vector<int>m(n,0);
-            for(int j=n-1;j>=0;j--){
-                m[j]=v[kk++];
-            }
-            kk+=n;
-
-            ans[i]=m;
-        }
-        for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                cout<<ans[i][j]<<" ";
-            }
-            cout<<endl;}
-        kk=n;
-
-    }
-    return 0;
+    int n;
+    cin>>n;
+    string s1;
+    cin>>s1;
+	// string s1 = "FFB";
+	// string s2 = "FBFFBFFBFB";
+	int res = isSubstring(s1, "FBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFBFBFFBFFBFB");
+	if (res == -1)
+		cout << "NO";
+	else
+		cout << "YEs ";
+				// res;
+                cout<<endl;
+}
+	return 0;
 }
