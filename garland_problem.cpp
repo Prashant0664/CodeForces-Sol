@@ -20,12 +20,9 @@ int main() {
         }
         c=0;
         for(int i=0;i<4;i++){
-            if(m[s[i]]!=0){
-                c++;
-                m[s[i]]=0;
-            }
+            c=max(c,m[s[i]]);
         }
-        if(c==2){
+        if(c==3){
             cout<<6;
         }
         else{
