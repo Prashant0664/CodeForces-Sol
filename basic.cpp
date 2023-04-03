@@ -2,12 +2,11 @@
 
 using namespace std;
 
-
 int main() {
     int t;
     cin >> t;
     while (t--) { 
-      cout<<(__gcd(4,4));
+      cout<<(1^2^4^4^5^6^6^6^6^6);
     }
     return 0;
 }

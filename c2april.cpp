@@ -40,7 +40,7 @@ int main()
                     }
                     else
                     {
-                        cout << "YES" << k[j] << endl;
+                        cout << "YES" <<endl<< k[j] << endl;
                     }
                     found=true;
                     break;
