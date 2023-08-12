@@ -22,9 +22,30 @@ int main()
   ll t = 1;
   cin>>t;
   while (t--){
-   string s="9111";
-   s[0]+=1;
-   cout<<s;
+    ll n;
+    cin>>n;
+    ll k=n;
+    n=(n*(n-1))/2;
+    vector<ll>v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+    }
+    sort(v.begin(),v.end());
+    vector<ll>ans;
+    cout<<v[n-1]<<" ";
+    ll i=0;
+    ll g=k;
+    g--;
+    ll pg=g;
+    while(i<n){
+        cout<<v[i]<<" ";
+        while(g--){
+            i++;
+        }
+        pg--;
+        g=pg;
+    }
+    cout<<endl;
   }
   return 0;
 }

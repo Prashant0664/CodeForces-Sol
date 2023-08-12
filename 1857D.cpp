@@ -22,9 +22,31 @@ int main()
   ll t = 1;
   cin>>t;
   while (t--){
-   string s="9111";
-   s[0]+=1;
-   cout<<s;
+    ll n;
+    cin>>n;
+    vector<ll>v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+    }
+    vector<ll>v2(n);
+    ll maxi=INT_MIN;
+    for(int i=0;i<n;i++){
+        cin>>v2[i];
+        maxi=max(maxi,v[i]-v2[i]);
+    }
+    vector<ll>v3;
+    for(int i=0;i<n;i++){
+        if(v[i]-v2[i]==maxi){
+            v3.push_back(i+1);
+        }
+    }
+    cout<<v3.size()<<endl;
+    for(auto i:v3){
+        cout<<i<<" ";
+    }
+    cout<<endl;
+    continue;
+    
   }
   return 0;
 }
