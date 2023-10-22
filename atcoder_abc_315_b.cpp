@@ -8,35 +8,25 @@ int main(){
     // cin>>t;
     while(t--){
         ll n;
-        cin>>n;
-        vector<vector<ll>>v(n);
-        for(int i=0;i<n;i++){
-            ll a,b;
-            cin>>a>>b;
-            v[i]={b,a};
-        }
-        sort(v.begin(),v.end());
-        reverse(v.begin(),v.end());
-        ll ans=0;
-        // cout<<"---\n";
-        // for(int i=0;i<n;i++){
-            // cout<<v[i][0]<<" "<<v[i][1]<<endl;
-        // }
-        if(v[0][1]!=v[1][1])
-        ans+=(v[0][0]+v[1][0]);
-        else ans+=v[0][0]+v[1][0]/2;
-        ll f=v[0][1];
-        // cout<<ans<<endl;
-        for(int i=0;i<n;i++){
-            if(v[i][1]!=v[0][1]){
-                ans=max(ans,v[i][0]+v[0][0]);
-                break;
-            }
-        }
-        cout<<ans<<endl;
-        // 1 4
-        // 2 10
-        // 2 8
-        // 3 6
+        // cin>>n;
+        string s;
+        cin>>s;
+        vector<string>v={"tourist", "3858",
+"ksun48" ,"3679",
+"Benq","3658",
+"Um_nik","3648",
+"apiad","3638",
+"Stonefeang","3630",
+"ecnerwala","3613",
+"mnbvmar","3555",
+"newbiedmy","3516",
+"semiexp","3481"};
+for(int i=0;i<v.size();i++){
+    if(v[i]==s){
+        cout<<v[i+1];
+        break;
+    }
+}
+        cout<<endl;
     }
 }
