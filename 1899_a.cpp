@@ -23,19 +23,19 @@ ll ans(){
             }
         }
         ans=0;
-        // for(int kk=0;kk<kjrbekjvbrjbe.size();kk++){
-            // ll it=kjrbekjvbrjbe[kk];
-        for (auto &&it : kjrbekjvbrjbe)
-        {
-            ll mn=INT_MAX, mx=0;
+        for(int kk=0;kk<kjrbekjvbrjbe.size();kk++){
+            ll it=kjrbekjvbrjbe[kk];
+        // for (auto &&it : kjrbekjvbrjbe)
+        // {
+            ll mn=1e18, mx=0;
             for (ll i = it; i <= n; i+=it)
             {
                 mn=min(mn,v[i]-v[i-it]);
                 mx=max(mx,v[i]-v[i-it]);
             }
-            ans=max(ans,mx-mn);
+            // ans=max(ans,mx-mn);
             if(ans<mx-mn){
-                // ans=mx-mn;
+                ans=mx-mn;
             }
         }
         return ans;
