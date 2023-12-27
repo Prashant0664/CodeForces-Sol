@@ -39,7 +39,16 @@ string removeOccurrences(string s, string p)
 void solution(){
     string s;
     cin>>s;
-    cout<<removeOccurrences(s,"ABC")<<endl;
+    string ans="";
+    for(int i=0;i<s.length();i++){
+        ans+=s[i];
+        if(ans.size()>=3 && ans.substr(ans.size()-3,3)=="ABC"){
+            ans.pop_back();
+            ans.pop_back();
+            ans.pop_back();
+        }
+    }
+    cout<<ans<<endl;
 }
 int main(){
     int t=1;

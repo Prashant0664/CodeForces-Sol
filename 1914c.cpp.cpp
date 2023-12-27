@@ -39,7 +39,7 @@ int help(vector<int>v,vector<int>v2,int i,int k,set<int>st,vector<int>vis,vector
     }
 }
 void solution(){
-    ll n,k;
+    int n,k;
     cin>>n>>k;
     vector<int>v(n);
     vector<int>v2(n);
@@ -49,16 +49,20 @@ void solution(){
     for(int i=0;i<n;i++){
         cin>>v2[i];
     }
+    int ans=0,f=0,maxi=0;
+    for(int i=0;i<n;i++){
+        if(i==k)break;
+        else{
+            ans=ans+v[i],maxi=max(maxi,v2[i]);
+            f=max(ans+(k-i-1)*maxi,f);
+        }
+    }
+    cout<<f<<endl;
+    return;
     vector<int>vis(1000000+6,0);
     set<int>st;
     vector<vector<vector<int>>>dp(n+1,vector<vector<int>>(k+1,vector<int>(n+10,-1)));
     cout<<help(v,v2,0,k,st,vis,dp)<<endl;
-    int ans=0;
-    int m=0;
-    if (!st.empty())
-        m = *(st.rbegin()); 
-    cout<<endl;
-    cout<<m<<endl;
 }
 int main(){
     int t=1;
