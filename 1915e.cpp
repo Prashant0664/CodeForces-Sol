@@ -100,24 +100,18 @@ void solution2()
     vector<ll> v(n);
     ll sum = 0;
     ll f = 0;
+    ll ith = 0, jth = 0;
+    ll mf=0;
+    // unordered_map<ll, ll> differenceithjth;
+    set<ll> st;
     for (int i = 0; i < n; i++)
     {
         cin >> v[i];
-        if (i > 1 && v[i] == v[i - 1])
-        {
-            f = 1;
-        }
-    }
-    if (f)
-    {
-        cout << "YES\n";
-        return;
-    }
-    ll ith = 0, jth = 0;
-
-    unordered_map<ll, ll> differenceithjth;
-    for (int i = 0; i < n; i++)
-    {
+        if(mf==1)continue;
+        // if (i > 1 && v[i] == v[i - 1])
+        // {
+        //     f = 1;
+        // }
         if (i % 2 == 1)
         {
             jth += v[i];
@@ -126,18 +120,31 @@ void solution2()
         {
             ith += v[i];
         }
-        else{
-            cout<<"NO\n";
+        else
+        {
+            cout << "NO\n";
             return;
         }
-        if (differenceithjth.find(jth - ith) != differenceithjth.end() || jth - ith == 0)
+        // if (differenceithjth.find(jth - ith) != differenceithjth.end() || jth - ith == 0)
+        if (jth - ith == 0 || st.find(jth - ith) != st.end())
         {
             cout << "YES" << endl;
-            return;
+            mf=1;
+            // return;
         }
-        differenceithjth[jth - ith] = i;
+        st.insert(jth - ith);
     }
-    cout << "NO\n";
+    // if (f)
+    // {
+    //     cout << "YES\n";
+    //     return;
+    // }
+
+    // for (int i = 0; i < n; i++)
+    // {
+        
+    // }
+    if(mf==0)cout << "NO\n";
     return;
 }
 int main()
