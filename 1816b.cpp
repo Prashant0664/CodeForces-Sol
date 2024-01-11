@@ -4,20 +4,20 @@ int main(){
     int t;
     cin>>t;
     while(t--){
-        int n;
+        long long n;
         cin>>n;
-        int sum=0;
-        for(int i=0;i<n;i++){
-            int k;
+        long long sum=0;
+        for(long long i=0;i<n;i++){
+            long long k;
             cin>>k;
             sum+=k;
         }
-        if(sqrt(sum)*sqrt(sum)==sum){
-            // cout<<sqrt(sum);
+        if((float)sqrt(sum)*sqrt(sum)==(float)sum){
+            // cout<<sqrt(sum)<<"-\n";
             cout<<"YES\n";
         }
         else{
-            cout<<"No\n";
+            cout<<"NO\n";
         }
     }
 }

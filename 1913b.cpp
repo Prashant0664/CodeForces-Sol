@@ -3,51 +3,21 @@ using namespace std;
 typedef long long int ll;
 
 void solution(){
-    ll n,m,k;
+    ll n,m;
+    cin>>n;
     string s;
-    cin>>s;
-    n=s.length();
-    string t=s;
-    ll o=0,z=0;
+    // cin>>s;
+    vector<ll>v(n);
     for(int i=0;i<n;i++){
-        if(s[i]=='0'){
-            z++;
-        }
-        else{
-            o++;
-        }
+        cin>>v[i];
     }
-    if(z==o){
-        cout<<0<<endl;
-        return;
-    }
-    for(ll i=0;i<n;i++){
-        if(s[i]=='0'){
-            if(o>0){
-                o--;
-            }
-            else{
-                cout<<n-i<<endl;
-                return;
-            }
-        }
-        else{
-            if(z>0){
-                z--;
-            }
-            else{
-                cout<<n-i<<endl;
-                return;
-            }
-        }
-    }
-    
     return;
 }
 int main(){
-    int t=1;
-    cin>>t;
-    while(t--){
+    int _=1;
+    cin>>_;
+    while(_--){
         solution();
     }
+    return 0;
 }
