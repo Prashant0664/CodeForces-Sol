@@ -8,6 +8,7 @@ bool sortbysec(const pair<int,int> &a,
     int help(){
         int a=0;
         int b=0;
+        int b=0;
         int c=0;
         int t=a+b+c;
         int h=t;
