@@ -22,45 +22,77 @@
 //     void()
 //     t -= 1
 
-    #include<bits/stdc++.h>
-    using namespace std;
-    typedef long long int ll;
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+
+void solution()
+{
+    ll n, m, k, x;
+    cin >> n >> k >> x;
+    // string s;
+    // cin>>s;
+    vector<ll> v(n);
+    ll sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v[i];
+        sum += v[i];
+    }
+    sort(v.begin(), v.end(), greater<ll>());
+    for (int i = 0; i < min(n, x); i++)
+    {
+        sum -= v[i] * 2;
+    }
+    ll ans = sum;
+    ll jk = x;
+    for (int i = 0; i < k; i++)
+    {
+        sum += v[i];
+        if (jk < n)
+        {
+            sum -= v[jk] * 2;
+        }
+        jk++;
+        ans = max(ans, sum);
+    }
+    // cout<<"\n- "<<ans<<" - \n";
+    cout << ans << endl;
+    return;
+}
+void solution2(){
+    ll n, k, x;
+    cin>>n>>k>>x;
+    vector<ll> v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+    }
+    sort(v.begin(), v.end(), greater<ll>());
+    ll ans=0;
+    for(int i=0;i<n;i++){
+        ans+=v[i];
+    }
+    for(int i=0;i<x;i++){
+        ans-=2*v[i];
+    }
+    ll g=ans;
+    for(int i=0;i<k;i++){
+        g+=v[i];
+        if(i+x<n)g-=2*v[i+x];
+        ans=max(ans,g);
+    }
+    cout<<ans<<endl;
+
     
-    void solution(){
-        ll n,m,k,x;
-        cin>>n>>k>>x;
-        // string s;
-        // cin>>s;
-        vector<ll>v(n);
-        ll sum=0;
-        for(int i=0;i<n;i++){
-            cin>>v[i];
-            sum+=v[i];
-        }
-        sort(v.begin(),v.end(),greater<ll>());
-        for(int i=0;i<min(n,x);i++){
-            sum-=v[i]*2;
-        }
-        ll ans=sum;
-        ll jk=x;
-        for(int i=0;i<k;i++){
-            sum+=v[i];
-            if(jk<n){
-                sum-=v[jk]*2;
-            }
-            jk++;
-            ans=max(ans,sum);
-        }
-        // cout<<"\n- "<<ans<<" - \n";
-        cout<<ans<<endl;
-        return;
+}
+int main()
+{
+    int _ = 1;
+    cin >> _;
+    while (_--)
+    {
+        solution2();
+        // cout<<"-";
     }
-    int main(){
-        int _=1;
-        cin>>_;
-        while(_--){
-            solution();
-            // cout<<"-";
-        }
-        return 0;
-    }
+    return 0;
+}

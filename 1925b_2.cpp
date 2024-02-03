@@ -57,7 +57,7 @@ void solve() {
             break;
         }
     }
-    cout<<ans;
+    cout<<ans<<"-";
     int kk=ans.size();
     while (kk<n) {
         cout<<g;
