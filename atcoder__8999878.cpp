@@ -9,5 +9,4 @@ int main(){
     while(n--){
         cin >> a[n];
     }
-
 }
