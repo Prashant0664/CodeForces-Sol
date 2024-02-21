@@ -8,6 +8,7 @@ int main(){
         cin>>a>>b;
         int c=0;
         if(a==b){
+            // cout<<1<<endl;
             cout<<2<<endl;
             continue;
         }
