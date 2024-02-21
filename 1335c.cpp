@@ -23,7 +23,11 @@ void solution(){
     }
     a--;
     // std::cout<<a<<" "<<b<<"\n";
-    if((a+1)>=(b-1) && (b-1)>0){
+    if(a>=b){
+        std::cout<<b<<"\n";
+        return;
+    }
+    if(a<b && (a+1)>=(b-1) && (b-1)>0){
         std::cout<<b-1<<endl;
         return;
     }
@@ -40,7 +44,7 @@ int main(){
     cin>>_;
     while(_--){
         solution();
-        // std::cout<<"-\n";
+        // std::cout<<"-\n" .;
     }
     return 0;
 }
