@@ -17,6 +17,7 @@ bool sortbysec(const pair<int,int> &a,
 int main(){
     int t;
     cin>>t;
+    // ..
     while(t--){
         
         int n;
