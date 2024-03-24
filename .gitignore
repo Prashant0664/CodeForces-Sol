@@ -6,3 +6,9 @@
 *.bin
 /.bin
 .bin
+/.cph
+*.cph
+.cph
+cph
+*output
+output
