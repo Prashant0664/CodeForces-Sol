@@ -3,3 +3,6 @@
 /vscode
 /output
 *.gitignore
+*.bin
+/.bin
+.bin
