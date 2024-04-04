@@ -12,25 +12,22 @@ void solution(){
     cin>>n;
     // cin>>m;
     string s;
-    // cin>>s;
-    vector<ll>v(n);
+    string t;
+    cin>>t;
+    cin>>s;
+    vector<int>ans;
+    ll o=0;
+    string g=t;
     for(int i=0;i<n;i++){
-        cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
+        if(s[i]!=t[i]){
+            ans.push_back(i+1);
+            ans.push_back(1);
+            ans.push_back(i+1);
         }
     }
-    map<ll,ll>mp;
-    ll sum=0;
-    for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
-        }
-        mp[sum]++;
-    }
-    pn("NO");
+    // cout<<g<<endl;
+    ps(ans.size());
+    printv(ans);
     return;
 }
 int main(){

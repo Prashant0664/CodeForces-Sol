@@ -16,28 +16,33 @@ void solution(){
     vector<ll>v(n);
     for(int i=0;i<n;i++){
         cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
-        }
     }
-    map<ll,ll>mp;
-    ll sum=0;
-    for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
-        }
-        mp[sum]++;
-    }
-    pn("NO");
     return;
 }
 int main(){
-    int _=1;
-    cin>>_;
-    while(_--){
-        solution();
-    }
+    int n;
+	string s;
+	cin >> n >> s;
+	int cntl = 0, cntr = 0;
+	for (int i = 0; i < n; ++i) {
+		if (s[i] == s[0]) {
+			++cntl;
+		} else {
+			break;
+		}
+	}
+	for (int i = n - 1; i >= 0; --i) {
+		if (s[i] == s[n - 1]) {
+			++cntr;
+		} else {
+			break;
+		}
+	}
+	if (s[0] == s[n - 1]) {
+		cout << ((cntl + 1) * 1ll * (cntr + 1)) % 998244353 << endl;
+	} else {
+		cout << (cntl + cntr + 1) % 998244353;
+	}
+	
     return 0;
 }

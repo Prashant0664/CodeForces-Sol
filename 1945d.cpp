@@ -20,8 +20,6 @@ void solution()
     ll n, m;
     cin >> n;
     cin >> m;
-    // string s;
-    // cin>>s;
     vector<ll> a(n), b(n);
     for (int i = 0; i < n; i++)
     {
@@ -31,37 +29,7 @@ void solution()
     {
         cin >> b[i];
     }
-    // vector<int>dp(n+1,-1);
-    // dp[n-1]=a[n-1];
-    // help(a,b,0,dp);
-    for (int i = 0; i < n; i++)
-    {
-        // cout<<dp[i]<<" ";
-    }
-    // cout<<endl;
-    // return;
-    vector<ll> v(n, INT_MAX);
-    v[n - 1] = a[n - 1];
-    ll bs = b[n - 1];
-    for (int i = n - 2; i >= 0; i--)
-    {
-        v[i] = min(v[i], bs + a[i]);
-        if (i == n - 2)
-        {
-            bs = min(b[n - 1], a[n - 1]);
-        }
-        bs = min(bs + b[i], bs + a[i]);
-    }
-    for (int i = 0; i < n; i++)
-    {
-        // cout<<v[i]<<" ";
-    }
-    // cout<<endl;
     ll ans = LLONG_MAX;
-    for (int i = 0; i < m; i++)
-    {
-        // ans=min(ans,v[i]);
-    }
     ll sum = 0;
     for (int i = n - 1; i >= 0; i--)
     {
@@ -73,11 +41,11 @@ void solution()
         {
         }
         sum += min(a[i], b[i]);
+        // cout<<sum<<" ";
     }
-    // }
+    // cout<<ans<<endl;
+    // 1 4 1 13  
     std::cout << ans << endl;
-
-    // pn(ans);
     return;
 }
 int main()

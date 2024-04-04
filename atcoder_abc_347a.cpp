@@ -10,32 +10,39 @@ typedef long long int ll;
 void solution(){
     ll n,m;
     cin>>n;
-    // cin>>m;
+    cin>>m;
+    ll k;
+    cin>>k;
     string s;
     // cin>>s;
     vector<ll>v(n);
     for(int i=0;i<n;i++){
         cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
-        }
     }
-    map<ll,ll>mp;
-    ll sum=0;
     for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
+        v[i]--;
+        ll h=(v[i]%(m+k));
+        // h--;
+        // if(v[i]>=(m+k)){
+            // h++;
+        // }
+        cout<<v[i]<<" "<<h<<" : ";
+        if(h<m){
+
         }
-        mp[sum]++;
+        else{
+            cout<<"No"<<endl;
+            // return;
+        }
+        cout<<endl;
     }
-    pn("NO");
+    // for(int i= 
+    cout<<"Yes";
     return;
 }
 int main(){
     int _=1;
-    cin>>_;
+    // cin>>_;
     while(_--){
         solution();
     }

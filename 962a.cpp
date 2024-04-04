@@ -16,26 +16,21 @@ void solution(){
     vector<ll>v(n);
     for(int i=0;i<n;i++){
         cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
-        }
     }
-    map<ll,ll>mp;
-    ll sum=0;
+    ll sum=accumulate(v.begin(),v.end(),0LL);
+    ll sum2=0;
     for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
+        sum2+=v[i];
+        if((float)sum2>=(float)sum/(float)2){
+            pn(i+1);
             return;
         }
-        mp[sum]++;
     }
-    pn("NO");
     return;
 }
 int main(){
     int _=1;
-    cin>>_;
+    // cin>>_;
     while(_--){
         solution();
     }

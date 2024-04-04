@@ -8,29 +8,17 @@ using namespace std;
 typedef long long int ll;
 
 void solution(){
-    ll n,m;
-    cin>>n;
-    // cin>>m;
-    string s;
-    // cin>>s;
-    vector<ll>v(n);
-    for(int i=0;i<n;i++){
-        cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
+    int n; cin >> n;
+        int x = 1e9 + 7, pos = -1;
+        for (int i = 0; i < n; ++i) {
+            int a; cin >> a;
+            if (a < x) x = a, pos = i;
         }
-    }
-    map<ll,ll>mp;
-    ll sum=0;
-    for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
+        cout << n - 1 << endl;
+        for (int i = 0; i < n; ++i) {
+            if (i == pos) continue;
+            cout << pos + 1 << ' ' << i + 1 << ' ' << x << ' ' << x + abs(i - pos) << "\n";
         }
-        mp[sum]++;
-    }
-    pn("NO");
     return;
 }
 int main(){

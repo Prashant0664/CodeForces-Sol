@@ -16,21 +16,37 @@ void solution(){
     vector<ll>v(n);
     for(int i=0;i<n;i++){
         cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
+    }
+    vector<int>v2(n,0);
+    for(int i=0;i<n-1;i++){
+        if(v[i]-v[i+1]<0){
+            ll d=abs(v[i]-v[i+1]);
+              v2[i+1]=d;
         }
+    }
+    multiset<ll>st;
+    for(int i=1;i<=n;i++){
+        st.insert(i);
     }
     map<ll,ll>mp;
-    ll sum=0;
     for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
+        if(v2[i]!=0){
+            auto x=lower_bound(st.begin(),st.end(),v2[i]);
+            ll y=*x;
+            st.erase(x);
+            mp[y]=i+1;
         }
-        mp[sum]++;
     }
-    pn("NO");
+    for(int i=1;i<=n;i++){
+        if(mp[i]==0){
+            cout<<n<<" ";
+        }
+        else{
+            cout<<mp[i]<<" ";
+        }
+    }
+    endo;
+
     return;
 }
 int main(){

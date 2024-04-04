@@ -12,30 +12,31 @@ void solution(){
     cin>>n;
     // cin>>m;
     string s;
-    // cin>>s;
-    vector<ll>v(n);
-    for(int i=0;i<n;i++){
-        cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
+    cin>>s;
+    int ans=INT_MAX;
+    string an="";
+    vector<string>v={"RGB","RBG","GRB","GBR","BRG","BGR"};
+    for(int i=0;i<v.size();i++){
+        int c=0;
+        string t=s;
+        for(int j=0;j<n;j++){
+            if(t[j]!=v[i][j%3]){
+                t[j]=v[i][j%3];
+                c++;
+            }
+        }
+        if(ans>c){
+            ans=c;
+            an=t;
         }
     }
-    map<ll,ll>mp;
-    ll sum=0;
-    for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
-        }
-        mp[sum]++;
-    }
-    pn("NO");
+    pn(ans);
+    pn(an);
     return;
 }
 int main(){
     int _=1;
-    cin>>_;
+    // cin>>_;
     while(_--){
         solution();
     }

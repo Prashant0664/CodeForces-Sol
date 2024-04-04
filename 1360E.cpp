@@ -13,24 +13,21 @@ void solution(){
     // cin>>m;
     string s;
     // cin>>s;
-    vector<ll>v(n);
+    vector<string>v(n);
     for(int i=0;i<n;i++){
         cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
+    }
+    for(int i=0;i<n-1;i++){
+        for(int j=0;j<n-1;j++){
+            if(v[i][j]=='1'){
+                if(v[i+1][j]=='0' && v[i][j+1]=='0'){
+                    cout<<"NO"<<endl;
+                    return;
+                }
+            }
         }
     }
-    map<ll,ll>mp;
-    ll sum=0;
-    for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
-        }
-        mp[sum]++;
-    }
-    pn("NO");
+    pn("YES");
     return;
 }
 int main(){

@@ -9,33 +9,28 @@ typedef long long int ll;
 
 void solution(){
     ll n,m;
-    cin>>n;
+    // cin>>n;
     // cin>>m;
     string s;
-    // cin>>s;
-    vector<ll>v(n);
+    cin>>s;
+    n=s.length();
+    unordered_set<string>st;
     for(int i=0;i<n;i++){
-        cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
+        for(int j=i;j<n;j++){
+            string t=s.substr(i,j-i+1);
+            // sort(t.begin(),t.end());
+            st.insert(t);
         }
     }
-    map<ll,ll>mp;
-    ll sum=0;
-    for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
-        }
-        mp[sum]++;
-    }
-    pn("NO");
+    // for(int i=0;i<100;i++){
+        // cout<<i%10;
+    // }
+    pn(st.size());
     return;
 }
 int main(){
     int _=1;
-    cin>>_;
+    // cin>>_;
     while(_--){
         solution();
     }

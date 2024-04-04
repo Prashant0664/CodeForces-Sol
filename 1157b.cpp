@@ -11,31 +11,34 @@ void solution(){
     ll n,m;
     cin>>n;
     // cin>>m;
+    m=10;
     string s;
-    // cin>>s;
-    vector<ll>v(n);
-    for(int i=0;i<n;i++){
+    cin>>s;
+    vector<ll>v(m+1);
+    for(int i=1;i<=9;i++){
         cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
-        }
     }
-    map<ll,ll>mp;
-    ll sum=0;
+    int st=0;
     for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
+        if(st==0 && (int)(s[i]-'0')<v[(int)(s[i]-'0')]){
+            st=1;
+            s[i]=(char)(v[(int)(s[i]-'0')]+'0');
         }
-        mp[sum]++;
+        else if(st==1 && (int)(s[i]-'0')<=v[(int)(s[i]-'0')]){
+            st=1;
+            s[i]=(char)(v[(int)(s[i]-'0')]+'0');
+        }
+        else if(st==1){
+            st=2;
+        }
+        // cout<<s<<endl;
     }
-    pn("NO");
+    pn(s);
     return;
 }
 int main(){
     int _=1;
-    cin>>_;
+    // cin>>_;
     while(_--){
         solution();
     }

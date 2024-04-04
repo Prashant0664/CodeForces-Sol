@@ -16,21 +16,29 @@ void solution(){
     vector<ll>v(n);
     for(int i=0;i<n;i++){
         cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
+    }
+    ll k=n;
+    // cout<<k<<" ";
+    vector<ll>ans(n,0);
+    for(int i=n-1;i>=0;i--){
+        if(v[i]<=0){
+            // v[i]=k+abs(v[i]);
+            ans[i]=(v[i]<0?-v[i]:v[i]);
+            ans[i]+=k;
+        }
+        else if(v[i]>0){
+            ll kk=v[i];
+            ans[i]=k-v[i];
+            k=ans[i];
+        }
+        else{
+            
         }
     }
-    map<ll,ll>mp;
-    ll sum=0;
-    for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
-        }
-        mp[sum]++;
-    }
-    pn("NO");
+    // for(int i=0;i<n;i++){
+        // cout<<anms[i]<<" ";
+    // }
+    printv(ans);
     return;
 }
 int main(){

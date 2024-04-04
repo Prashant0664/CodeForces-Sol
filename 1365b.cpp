@@ -13,24 +13,31 @@ void solution(){
     // cin>>m;
     string s;
     // cin>>s;
-    vector<ll>v(n);
+    vector<ll>v(n),v2(n);
     for(int i=0;i<n;i++){
         cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
-        }
     }
-    map<ll,ll>mp;
-    ll sum=0;
+    int o=0,z=0;
     for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
+        cin>>v2[i];
+        if(v2[i]==1){
+            o=1;
         }
-        mp[sum]++;
+        else{
+            z=1;
+        }
     }
-    pn("NO");
+    if(o && z){
+        pn("Yes");
+        return;
+    }
+    for(int i=1;i<n;i++){
+        if(v[i]<v[i-1]){
+            pn("No");
+            return;
+        } 
+    }
+    pn("Yes");
     return;
 }
 int main(){

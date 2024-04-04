@@ -10,27 +10,18 @@ typedef long long int ll;
 void solution(){
     ll n,m;
     cin>>n;
-    // cin>>m;
+    cin>>m;
     string s;
-    // cin>>s;
-    vector<ll>v(n);
+    cin>>s;
+    ll ans=0;
+    string t=s;
     for(int i=0;i<n;i++){
-        cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
+        if(t[i]=='0'){
+            if(m%2==0){
+                
+            }
         }
     }
-    map<ll,ll>mp;
-    ll sum=0;
-    for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
-        }
-        mp[sum]++;
-    }
-    pn("NO");
     return;
 }
 int main(){

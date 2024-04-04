@@ -8,34 +8,34 @@ using namespace std;
 typedef long long int ll;
 
 void solution(){
-    ll n,m;
+    ll n,m,k;
     cin>>n;
-    // cin>>m;
+    cin>>m>>k;
     string s;
     // cin>>s;
     vector<ll>v(n);
     for(int i=0;i<n;i++){
         cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
-        }
     }
-    map<ll,ll>mp;
-    ll sum=0;
+    map<ll,vector<ll>>mp;
     for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
+        mp[v[i]%k].push_back(v[i]);
+    }
+    for(auto &[i,j]:mp){
+        if(j.size()>=m){
+            pn("Yes")
+            for(int l=0;l<m;l++){
+                ps(j[l]);
+            }
             return;
         }
-        mp[sum]++;
     }
-    pn("NO");
+    pn("No")
     return;
 }
 int main(){
     int _=1;
-    cin>>_;
+    // cin>>_;
     while(_--){
         solution();
     }

@@ -14,28 +14,35 @@ void solution(){
     string s;
     // cin>>s;
     vector<ll>v(n);
+    vector<ll>v2(n);
     for(int i=0;i<n;i++){
         cin>>v[i];
-        if(i%2==0){
-            v[i]=-v[i];
-        }
     }
-    map<ll,ll>mp;
-    ll sum=0;
     for(int i=0;i<n;i++){
-        sum+=v[i];
-        if(mp[sum] && mp[sum]>0 || sum==0){
-            pn("YES");
-            return;
-        }
-        mp[sum]++;
+        cin>>v2[i];
     }
-    pn("NO");
+    int i=0;
+    int j=0;
+    set<ll>st;
+    while(j<n && i<n){
+        if(st.find(v[j])!=st.end()){
+            j++;
+        }
+        else if(v[j]!=v2[i]){
+            st.insert(v2[i]);
+            i++;
+        }
+        else{
+            j++;
+            i++;
+        }
+    }
+    pn(st.size());
     return;
 }
 int main(){
     int _=1;
-    cin>>_;
+    // cin>>_;
     while(_--){
         solution();
     }
