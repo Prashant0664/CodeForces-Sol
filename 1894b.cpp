@@ -1,51 +1,47 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+ 
 using namespace std;
-typedef long long int ll;
-
-void solution(){
-    ll n,k;
-    cin>>n>>k;
-    // string s;
-    // cin>>s;
-    vector<ll>v(n);
-    int c0=0;
-    int li=-1;
-    for(int i=0;i<n;i++){
-        cin>>v[i];
-        if(v[i]==v[0])c0++;
-        if(c0==k && li==-1)li=i;
+const int N = 100;
+ 
+void solve() {
+  int n;
+  cin >> n;
+  vector<int> a(n);
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+  }
+  vector<int> b(n, 1);
+  vector<vector<int>> inds(N + 1);
+  for (int i = 0; i < n; i++) {
+    inds[a[i]].push_back(i);
+  }
+  int k = 2;
+  for (int x = 1; x <= N; x++) {
+    if ((int) inds[x].size() >= 2) {
+      b[inds[x][0]] = k;
+      k++;
+      if (k > 3) {
+        break;
+      }
     }
-    // cout<<li<<" ";
-    // cout<<"\n"<<n<<"<>"<<k<<endl;
-    if(k==1){
-        cout<<"YES\n"<<endl;
-        return;
+  }
+  if (k <= 3) {
+    cout << "-1\n";
+  } else {
+    for (int i = 0; i < n; i++) {
+      cout << b[i] << ' ';
     }
-    if(c0>=k && v[0]==v[n-1]){
-        cout<<"YES\n"<<endl;
-        return;
-    }
-    if(c0<k){
-        cout<<"NO\n"<<endl;
-        return;
-    }
-    int c2=0;
-    for(int i=n-1;i>li;i--){
-        if(v[i]==v[n-1])c2++;
-        if(c2==k)break;
-    }
-    if(c2%k==0){
-        cout<<"YES\n"<<endl;
-        return;
-    }
-    cout<<"NO\n"<<endl;
-    return;
+    cout << '\n';
+  }
 }
-int main(){
-    int _=1;
-    cin>>_;
-    while(_--){
-        solution();
-    }
-    return 0;
+ 
+signed main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+  int t;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
 }

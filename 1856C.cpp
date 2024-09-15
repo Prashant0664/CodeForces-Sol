@@ -1,99 +1,112 @@
-// #include <bits/stdc++.h>
-// using namespace std;
- 
-// typedef unsigned int uint;
-// typedef long long int ll;
-// typedef unsigned long long ull;
-// typedef pair<int, int> pii;
-// typedef pair<ll, int> pli;
-// typedef pair<int, ll> pil;
-// typedef pair<ll, ll> pll;
- 
+/*
+       ___      _      ___     ____   _    _   ____     _____  
+      |_  |    / \    |_ _|   / ___| | |  | | |  _ \   |_   _| 
+        | |   / _ \    | |    \___ \ | |__| | | |_) |    | |   
+    |___| |  / ___ \   | |     ___) ||  __  | |  _ <    _| |_  
+    |_____| /_/   \_\ |___|   |____/ |_|  |_| |_|  \_\ |_____|
 
-// #define MP make_pair
-// #define PB push_back
-// #define EB emplace_back
-// #define forn(ik,n) for(int i=0; i<(n); ++i) 
-// #define vll(a,n) forn(i,n) cin>>a[i];
-// #define vii(a,n) forn(i,n) cin>>a[i];
+                  ____         _      __  __ 
+                 |  _ \       / \    |  \/  |
+                 | |_) |     / _ \   | \  / |
+                 |  _ <     / ___ \  | |\/| |
+                 |_|  \_\  /_/   \_\ |_|  |_|
 
-// int main()
-// {
-//   ll t = 1;
-//   cin>>t;
-//   while (t--){
-//     int n;
-//     cin >> n;
-//     ll ans=0;
-//     ll k;
-//     cin>>k;
-//     vector<ll>v(n);
-//     ll maxi=INT_MIN;
-//     for(int i=0;i<n;i++){
-//         cin>>v[i];
-//         maxi=max(v[i],maxi);
-//     }
-//     if(n<=2){
-//         ll h=(abs(v[0]-v[1]));
-//         if(h<k){
-//             cout<<max(v[0],v[1])<<endl;
-//             continue;
-//         }
-//         cout<<(max(v[0],v[1])+1)<<endl;
-//         continue;
-//         h=k-h;
-//         if(h%2==1){
-//             cout<<(1+max(v[0],v[1])+h/2);
-//             continue;
-//         }
-//         cout<<(max(v[0],v[1])+h/2);
-//         continue;
-//     }
-//     int s=INT_MAX;
-//     int ind=0;
-//     int fl=0;
-//     for(int i=2;i<n;i++){
-//         if((abs(v[i]-v[i-1])+abs(v[i-1]-v[i-2]))<s){
-//             if(v[i]>=v[i-1] && v[i-1]>=v[i-2]){
-//                 s=(abs(v[i]-v[i-1])+abs(v[i-1]-v[i-2]));
-//                 ind=i;
-//                 fl=1;
-//             }
-//         }
-//         else{
-            
-//         }
-//     }
-//     if(fl){
-//         int f=0;
-//         ll h=max(abs(v[ind]-v[ind-1]),abs(v[ind-1]-v[ind-2]));
-//         ll h2=min(abs(v[ind]-v[ind-1]),abs(v[ind-1]-v[ind-2]));
-//         ll a=abs(v[ind]-v[ind-1]);
-//         ll b=abs(v[ind-1]-v[ind-2]);
-//         ll x=v[ind];
-//         ll y=v[ind-1];
-//         ll z=v[ind-2];
-//         if(k<=h2){
-//             cout<<maxi<<endl;
-//         }
-//         if(k<=h){
-//             cout<<maxi<<endl;
-//         }
-//         if(k<=(h+h2)){
-//             k-=(h+h2);
-//             if(k==0){
-//                 cout<<max(maxi,max(x,max(y,z)));
-//                 continue;
-//             }
-//             else{
+*/
+#include<bits/stdc++.h>
+using namespace std;
+#define pn(x) cout<<x<<endl;
+#define ps(x) cout<<x<<' ';
+#define endo cout<<endl;
+#define printv(v) for(auto x:v){ps(x);}endo;
+#define printve(v) for(auto x:v){ps(x);};
+#define mod 1000000007
+#define pll pair<ll,ll>
+#define pii pair<int,int>
+typedef long long int ll;
 
-//             }
+void __print(int x) {cerr << x;}
+void __print(long x) {cerr << x;}
+void __print(long long x) {cerr << x;}
+void __print(unsigned x) {cerr << x;}
+void __print(unsigned long x) {cerr << x;}
+void __print(unsigned long long x) {cerr << x;}
+void __print(float x) {cerr << x;}
+void __print(double x) {cerr << x;}
+void __print(long double x) {cerr << x;}
+void __print(char x) {cerr << '\'' << x << '\'';}
+void __print(const char *x) {cerr << '\"' << x << '\"';}
+void __print(const string &x) {cerr << '\"' << x << '\"';}
+void __print(bool x) {cerr << (x ? "true" : "false");}
 
-//         }
-//         if(k>(h+h2)){
+template<typename T, typename V>
+void __print(const pair<T, V> &x) {cerr << '{'; __print(x.first); cerr << ','; __print(x.second); cerr << '}';}
+template<typename T>
+void __print(const T &x) {int f = 0; cerr << '{'; for (auto &i: x) cerr << (f++ ? "," : ""), __print(i); cerr << "}";}
+void _print() {cerr << "]\n";}
+template <typename T, typename... V>
+void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v...);}
+#ifndef ONLINE_JUDGE
+#define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
+#else
+#define debug(x...)
+#endif
 
-//         }
-//     }
-//   }
-//   return 0;
-// }
+
+int check(vector<int>&v, int mid){
+    int n=v.size();
+    vector<int>dp(n+1,0);
+    ll ans=INT_MAX;
+    for(int i=0;i<n;i++){
+        if(v[i]>=mid)return 1;
+        int rd=mid;
+        for(int j=i;j<n-1;j++){
+            if(v[j]<rd){
+                dp[i]+=abs(rd-v[i]);
+                rd--;
+            }
+            else{
+                break;
+            }   
+        }
+        ans=min((int)ans,dp[i]);
+    }
+    return ans;
+}
+
+void solution(){
+    ll n,m;
+    cin>>n;
+    cin>>m;
+    string s;
+    // cin>>s;
+    vector<int>v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+    }
+    int low=0,high=INT_MAX;
+    int ans=0;
+    int g=check(v,4);
+    pn(g);
+    return;
+    while(low<=high){
+        int mid=(low+high)>>1;
+        int g=check(v,mid);
+        if(g<=m){
+            ans=mid;
+            low=mid+1;
+        }
+        else{
+            high=mid-1;
+        }
+    }
+    pn(ans);
+    return;
+}
+int main(){
+    int _=1;
+    cin>>_;
+    while(_--){
+        solution();
+    }
+    return 0;
+}

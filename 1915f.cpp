@@ -1,97 +1,45 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
+#define pn(x) cout<<x<<endl;
+#define ps(x) cout<<x<<' ';
+#define endo cout<<endl;
+#define printv(v) for(auto x:v){ps(x);}endo;
+#define printve(v) for(auto x:v){ps(x);};
+#define mod 1000000007
 typedef long long int ll;
-void findIntersection(vector<pair<ll, ll>> v, ll n)
-{
-    vector<pair<ll, ll>> data;
-    vector<vector<ll>> answer(n);
-    for (ll i = 0; i < n; i++)
-    {
-        data.push_back(make_pair(v[i].first, i));
 
-        data.push_back(make_pair(v[i].second, i));
-    }
-    sort(data.begin(), data.end());
-    ll curr = 0;
-    set<pair<ll, ll>> s;
-    for (auto it : data)
-    {
-        if (curr >= n)
-            break;
-        if (s.count(it))
-            s.erase(it);
-        else
-        {
-            ll i = it.second;
-            ll j = v[i].second;
-            for (auto k : s)
-            {
-                if (k.first > j)
-                    break;
-                ll index = k.second;
-                answer[i].push_back(index);
-                answer[index].push_back(i);
-                curr++;
-                if (curr >= n)
-                    break;
-            }
-            s.insert(make_pair(j, i));
-        }
-    }
-    ll ans = 0;
-    set<vector<ll>> st;
-    for (ll i = 0; i < n; i++)
-    {
+#define ordered_set tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
 
-        // cout << "{" << v[i].first << ", " << v[i].second << "}"
-        //      << " is llersecting with: ";
-
-        for (ll j = 0; j < answer[i].size(); j++){
-            if (
-                st.find(
-                    {v[answer[i][j]].first, v[answer[i][j]].second, v[i].first, v[i].second}) != st.end())
-            {
-                // continue;
-            }
-            else
-            {
-            }
-        // cout << "{" << v[answer[i][j]].first << ", "
-        //      << v[answer[i][j]].second << "}"
-        //      << " ";
-        st.insert({v[i].first, v[i].second, v[answer[i][j]].first, v[answer[i][j]].second});
-        ans++;
-        }
-    }
-    cout << ans << endl;
-}
-
-void solution2()
-{
-    ll n;
+void solution(){
+    ll n,m;
     cin>>n;
-    vector<pair<ll, ll>> v;
-    for (ll i = 0; i < n; i++)
-    {
-        ll a, b;
-        cin >> a >> b;
-        v.push_back({a, b});
+    // cin>>m;
+    string s;
+    // cin>>s;
+    vector<pair<ll,ll>>v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i].first>>v[i].second;
     }
     sort(v.begin(),v.end());
-    findIntersection(v, n);
-    // 5 4
-    // 6 2
-    // 9 3
-    // 8 1
-    // 10 7
-    // 100 -2
-}
-int main()
-{
-    int _ = 1;
-    cin >> _;
-    while (_--)
-    {
-        solution2();
+    ll ans=0;
+
+    ordered_set st;
+    st.clear();
+    for(int i=0;i<n;i++){
+        ans+=st.size()-st.order_of_key(v[i].second);
+        st.insert(v[i].second);
     }
+    pn(ans);
+    return;
+}
+int main(){
+    int _=1;
+    cin>>_;
+    while(_--){
+        solution();
+    }
+    return 0;
 }
